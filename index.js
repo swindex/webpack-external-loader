@@ -1,17 +1,9 @@
-var loaderUtils = require('loader-utils');
-
-//var validateOptions = require('schema-utils');
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-  });
+var rp = require('app-root-path');
 
 var http = require('sync-request');
 const fs = require('fs');
 var path = require('path');
-var path2 = _interopRequireDefault(path);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 module.exports = function (source) {
   	this.cacheable && this.cacheable();
 	//console.log(_path2);	
@@ -30,12 +22,12 @@ module.exports = function (source) {
 	source = source.replace(/url\(((?:http)|(?:https)\:[^\)]*)\)/g,function(a,b, c){
 		var name = path.basename(b);
 		
-		var tmpdir = "tmp";
+		var tmpdir =  path.resolve(rp.path, 'node_modules', 'external-loader', 'tmp');
+
 		if (!fs.existsSync(tmpdir))
-		fs.mkdirSync(tmpdir)
+			fs.mkdirSync(tmpdir)
 
-
-		var localPath = tmpdir+"/"+name;
+		var localPath = path.resolve(tmpdir, name);
 
 		if (fs.existsSync(localPath)){
 			console.log("Using Cashed: "+localPath);
@@ -51,7 +43,7 @@ module.exports = function (source) {
 			fs.writeFileSync(localPath, ret);
 		}
 
-		var p =  path.resolve(__dirname,'..',localPath) ;
+		var p = localPath;
 		p = p.replace(/\\/g,"/");
 		return `url('~${ p }')`;
 	});
