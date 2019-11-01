@@ -1,5 +1,5 @@
 {
-  "name": "@swindex/external-loader",
+  "name": "external-loader",
   "version": "1.0.0",
   "description": "Webpack Loader that Includes CSS and its resources from the remote url",
   "main": "index.js",
