@@ -1,6 +1,6 @@
 ***external-loader***
 
-**webpack 3.0 plugin**
+**webpack 3.0/4.0 plugin**
 
 * Inlines the contents of '@import url("http://")' into the CSS.
 * Downloads the contents of the remote url() rules into the "tmp" folder and replaces the path to the new absolute location
