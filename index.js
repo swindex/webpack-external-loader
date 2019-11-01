@@ -22,7 +22,7 @@ module.exports = function (source) {
 	source = source.replace(/url\(((?:http)|(?:https)\:[^\)]*)\)/g,function(a,b, c){
 		var name = path.basename(b);
 		
-		var tmpdir =  path.resolve(rp.path, 'node_modules', 'external-loader', 'tmp');
+		var tmpdir =  path.resolve(rp.path, 'node_modules', 'external-downloader', 'tmp');
 
 		if (!fs.existsSync(tmpdir))
 			fs.mkdirSync(tmpdir)
