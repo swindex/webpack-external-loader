@@ -1,6 +1,6 @@
 {
   "name": "external-downloader",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Webpack Loader that Includes CSS and its resources from the remote url",
   "main": "index.js",
   "scripts": {

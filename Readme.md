@@ -2,8 +2,8 @@
 
 **webpack 3.0/4.0 plugin**
 
-* Inlines the contents of '***@import url("http://")***' into the CSS.
-* Downloads the contents of the remote ***url()*** rules into the "tmp" folder and replaces the path to the new absolute location
+* Inlines the contents of **'@import url("http://")'** into the CSS.
+* Downloads the contents of the remote **url()** rules into the "tmp" folder and replaces the path to the new absolute location
 
 
 Should be used before css-loader loader like so:
@@ -21,7 +21,7 @@ Should be used before css-loader loader like so:
 					}
 				},
 				{
-					loader: '***external-downloader***'
+					loader: 'external-downloader'
 				},
 				{
 					loader: 'postcss-loader',
